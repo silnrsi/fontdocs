@@ -43,7 +43,7 @@ To use this system for a font project:
     - Do not include the Charis SIL fonts in your project - they are only there for the examples
 - Create and edit your docs as individual Markdown files in the `source` folder, based on the format in provided examples
 - Copy the `makedocs` shell script to the root of your project and adjust it to produce your docs (you will also need to make it executable)
-- Run `makedocs` - the results will be in:
+- Run `./makedocs` from the project root folder - the results will be in:
     - `documentation` (HTML)
     - `documentation/pdf` (PDF)
     - `documentation/source/producesite` (Alternative Markdown for SIL product sites)
