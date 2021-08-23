@@ -2,16 +2,13 @@
 
 This is a system for generating simple multi-platform documentation for font projects. It was specifically developed for SIL font projects that use the workflow documented at [SIL Font Development Notes (silfontdev)](https://silnrsi.github.io/silfontdev/en-US/index.html) but could provide ideas for other projects and workflows.
 
-From Markdown source the system generates:
+From markdown source the system generates:
 
 - HTML docs that use a simple template and webfonts
 - PDF versions of the HTML docs
-- Alternate Markdown used for SIL product web sites
+- Alternate markdown used for SIL product web sites
 
-It supports:
-
-- OpenType font features using CSS webfonts
-- Links to other documents and external sites, both in HTML and PDF versions
+It supports OpenType font features using CSS webfonts.
 
 The design and functionality of the docs is intentionally basic. The visual appearance can be adjusted by modifying the HTML templates and CSS.
 
@@ -53,34 +50,57 @@ To use this system for a font project:
 
 ## Authoring content
 
-Individual pages are stored as markdown files in the `source` folder. Each file needs a YAML-style header with two required key-value pairs _title_ and 
+Individual pages are stored as markdown files in the `source` folder. Each file needs a YAML-style header with two required key-value pairs: *title* and *fontversion*, as in:
 
-header
-version
-footer
-links
-images
-(see markdowntest)
+```
+---
+title: Charis SIL - About
+fontversion: 6.001
+---
+```
 
-## Options and Notes
+The markdown style is generic with some extensions. The `source/markdowntest.md` file provides examples of the supported syntax and details of special features:
 
-Serif vs sensserif font - theme.css
-Markdowntest -markdown flavour
-Images
-Product site shortcodes CSS classes
+- Links to other files and external sources that work in both HTML and PDF versions
+- Images (with special alternate syntax for product sites)
+- Webfonts
+- OpenType features
+
+Examples of many of these are provided in the example Charis SIL docs.
+
+You will want to remove the Charis SIL examples, the `markdowntest.md` file, and any generated HTML/PDF/md versions of them from your final font package.  
+
+## SIL Product Sites usage
+
+The system can create alternate-flavor markdown specifically for SIL font Product Sites. The content of these files can be copied and pasted directly into product site page text edit fields. There are a few important considerations:
+
+Any page that displays the webfonts must have a special shortcode added that lists the fonts used on the page and references the fonts as uploaded to the server. It is enclosed in a CSS comment: (for an example see `features.md`)
+
+```
+<!-- PRODUCT SITE ONLY
+[font id='charis' face='CharisSIL-Regular' italic='CharisSIL-Italic' bold='CharisSIL-Bold' bolditalic='CharisSIL-BoldItalic' size='150%']
+-->
+```
+
+Images on Product Site pages also require a special comment syntax that specifies the exact link for the image: (for an example see `design.md`)
+
+```
+![Charis SIL Sample - Precomposed Latin Diacritics](assets/images/CharisSILTypePage.png){.fullsize}
+<!-- PRODUCT SITE IMAGE SRC http://software.sil.org/charis/wp-content/uploads/sites/14/2015/12/CharisSILTypePage.png -->
+<figcaption>This is the caption</figcaption>
+```
+
+These comments are processes by the `makepsmd.py` script and used to transform the markdown into what is expected by the product sites system.
+
+Finally, the class definitions in `webfonts.css` and references on individual pages must match the pattern expected by the Product Sites, where the [font] shortcode on pages refers to a general family name (e.g. 'charis') and the classes are defined with extensions to that id (e.g. '.charis-R', '.charis-BI').
+
+## Further notes
+
+### Text font
+
+By default this system produces docs that use a generic system sans serif font for the main text. This allows most project webfonts to stand out better when used as an example on a page. This can be changed in `theme.css`. There is already a serif alternative line commented out for the <body> entity that can be used instead. To change the font used for PDF versions modify `themepdf.css`.
 
 ## License
 
-MIT
-Charis
-
-
-
-
-
-This is only a playground for experimental development of font documentation processes. Please do not fork this project as it is not yet under an open license.
-
-
-
-Copyright © 2021 SIL International.
+This software is Copyright (c) 2021 SIL International (http://www.sil.org) and released under the MIT license (see LICENSE). Font software from the Charis SIL project is released under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL).
 

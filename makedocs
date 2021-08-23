@@ -87,6 +87,6 @@ echo "     > resources.md"
 python3 documentation/source/makepsmd.py documentation/source/resources.md documentation/source/productsite/resources.md -q
 echo "     > support.md"
 python3 documentation/source/makepsmd.py documentation/source/support.md documentation/source/productsite/support.md -q
-echo "     Markdown source for other pages is in separate repo"
+echo "     Markdown source for other Product Site pages is in separate repo"
 
 echo "-----Completed!"
