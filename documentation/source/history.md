@@ -1,9 +1,13 @@
 ---
 title: Charis SIL - Version History
-fontversion: 6.000
+fontversion: 6.001
 ---
 
-### 15 Jun 2021 (SIL WSTech Team) Charis SIL version 6.000
+### 2 July 2021 (SIL WSTech Team) Charis SIL version 6.001
+
+- Reverted font Postscript name to that used in v5 and earlier to avoid problems with unrecognized fonts when opening older documents.
+
+### 29 Jun 2021 (SIL WSTech Team) Charis SIL version 6.000
 
 ***Note that this is a major upgrade that may cause document reflow as some glyphs widths have changed and some features have been removed.***
 
@@ -13,7 +17,7 @@ fontversion: 6.000
 
 - **Graphite has been removed.** Application and OS support for OpenType has greatly improved, so the need for Graphite in this font family is greatly reduced. *If this affects you, and you find that OpenType does not provide sufficient support for your needs, please contact us right away.*  
 
-- Removed the "Show Invisibles" feature.
+- Removed the *Show Invisibles* feature.
 
 - Removed support for nine-level pitch contours. These will be replaced by a standalone pitch contours font in the future.
 
@@ -83,12 +87,11 @@ Characters added to support Unicode versions 7.0-13.0, including feature support
 - Feature to support side-by-side rendering of U+0300 plus U+0301
     - Kayan diacritics (cv79)
 
+- Tone letter features (cv91 & cv92) now supported through OpenType
 
 #### Fixes
 
-- Width of typographic spaces have been made more consistent to reflect
-common publishing industry usage. Note that this may affect line and page
-lengths. Affected spaces:
+- Width of typographic spaces have been made more consistent to reflect common publishing industry usage. Note that this may affect line and page lengths. Affected spaces:
 
     - U+2000 EN QUAD (made width consistent)
     - U+2001 EM QUAD (made width consistent)
@@ -98,12 +101,15 @@ lengths. Affected spaces:
 
 - Fixed some small capital correspondences, including added support for clicks
 
+- Fixed problems with spacing of tone letters
+
 - Fixed missing or distorted Vietnamese composite glyphs
 
 - Fixed miscellaneous distorted glyphs
 
-- Improved miscellaneous anchor positions, including the position of diacritics 
-below glyphs with macrons below (e.g. U+1E0F LATIN SMALL LETTER D WITH LINE BELOW)
+- Improved miscellaneous anchor positions, including the position of diacritics below glyphs with macrons below (e.g. U+1E0F LATIN SMALL LETTER D WITH LINE BELOW)
+
+- Improved position of diacritics for superscripts and modifier letters (including cedilla, ogonek, rhotic hook)
 
 - Fixes and improvements to various glyphs:
     - U+0037 DIGIT SEVEN (spacing)
@@ -126,6 +132,12 @@ below glyphs with macrons below (e.g. U+1E0F LATIN SMALL LETTER D WITH LINE BELO
     - U+A77F LATIN SMALL LETTER TURNED INSULAR G (position)
     - U+A7F8 MODIFIER LETTER CAPITAL H WITH STROKE (form)
     - U+A7FA LATIN LETTER SMALL CAPITAL TURNED M (italic)
+
+#### Known issues
+
+- There is no support for TypeTuner or TypeTuner Web. We hope to add that support soon.
+
+- There are no regional subsets. Please contact us if these are a priority for you and describe how you use them. We are reassessing whether to provide these subsets. With current web technology and WOFF2 compression most uses can be met equally well with the full fonts.
 
 ### 27 Oct 2014 (SIL NRSI team) Charis SIL version 5.000
 - Added Stylistic Sets to the font for OpenType support 
