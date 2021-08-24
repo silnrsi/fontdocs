@@ -41,12 +41,12 @@ To use this system for a font project:
 - Adjust `assets/css/webfontsttf.css` to point to wherever the TTF or OTF versions of your fonts can be found (typically in a `/results` folder when building SIL font projects)
     - This repo contains the full Charis SIL 6.001 package in the `results` folder, however only the font themselves are needed
     - Do not include the Charis SIL fonts in your project - they are only there for the examples
-- Create and edit your docs as individual Markdown files in the `source` folder, based on the format in provided examples
+- Create and edit your docs as individual markdown files in the `source` folder, based on the format in provided examples
 - Copy the `makedocs` shell script to the root of your project and adjust it to produce your docs (you will also need to make it executable)
 - Run `./makedocs` from the project root folder - the results will be in:
     - `documentation` (HTML)
     - `documentation/pdf` (PDF)
-    - `documentation/source/producesite` (Alternative Markdown for SIL product sites)
+    - `documentation/source/productsite` (Alternative markdown for SIL product sites)
 
 ## Authoring content
 
@@ -68,7 +68,7 @@ The markdown style is generic with some extensions. The `source/markdowntest.md`
 
 Examples of many of these are provided in the example Charis SIL docs.
 
-You will want to remove the Charis SIL examples, the `markdowntest.md` file, and any generated HTML/PDF/md versions of them from your final font package.  
+You will want to remove the Charis SIL examples, the `markdowntest.md` file, and any generated HTML/PDF/md versions of them from your final font package.
 
 ## SIL Product Sites usage
 
@@ -102,5 +102,5 @@ By default this system produces docs that use a generic system sans serif font f
 
 ## License
 
-This software is Copyright (c) 2021 SIL International (http://www.sil.org) and released under the MIT license (see LICENSE). Font software from the Charis SIL project is released under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL).
+This software is Copyright (c) 2021 SIL International (http://www.sil.org) and released under the MIT license. Font software from the Charis SIL project is released under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL). (see [LICENSE](LICENSE) for details).
 

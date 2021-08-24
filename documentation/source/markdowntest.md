@@ -114,7 +114,7 @@ Example: <span class='charis-R normal'>Charis SIL regular,</span> <span class='c
 
 ## Font features
 
-Activating font features requires setting feature values. It is possible to set the font-feature-settings using special css classes, but it may be better to set the feature setting in the `<span>`. This reduces the number of [font] shortcode defintions that need to be added to each page. Examples:
+Activating font features requires setting feature values. It is possible to set the font-feature-settings using special css classes, but it may be better to set the feature setting in the `<span>`. This reduces the number of [font] shortcode definitions that need to be added to each page. Examples:
 
 Feature | Default | Activated
 ------- | ------- | ---------
