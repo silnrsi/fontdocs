@@ -124,6 +124,10 @@ Eng alternate 2 (cv43) | <span class='charis-R normal'>Ŋ</span> | <span class='
 Eng alternate 3 (cv43) | <span class='charis-R normal'>Ŋ</span> | <span class='charis-R normal' style='font-feature-settings: "cv43" 3'>Ŋ</span>
 Serbian italic alternates (language-specific) | <span class='charis-I normal'>б г д п т</span> | <span class='charis-I normal' lang='sr'>б г д п т</span>
 
+## Color
+
+Text can be <span style="color:red;">colored</span> by adding the CSS *style* property to the `<span>` of text.
+
 ## Horizontal rule
 
 Paragraph before rule.
