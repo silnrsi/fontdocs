@@ -42,7 +42,11 @@ To use this system for a font project:
     - This repo contains the full Charis SIL 6.001 package in the `results` folder, however only the font themselves are needed
     - Do not include the Charis SIL fonts in your project - they are only there for the examples
 - Create and edit your docs as individual markdown files in the `source` folder, based on the format in provided examples
-- Copy the `makedocs` shell script to the root of your project and adjust it to produce your docs (you will also need to make it executable)
+- Prepare the `makedocs` shell script:
+    - Add the following line to the .gitattributes file of your project: `makedocs text eol=lf`
+    - Copy the `makedocs` shell script to the root of your project
+    - Adjust it to produce your docs
+    - Make the file executable by running: `chmod +x makedocs`
 - Run `./makedocs` from the project root folder - the results will be in:
     - `documentation` (HTML)
     - `documentation/pdf` (PDF)
