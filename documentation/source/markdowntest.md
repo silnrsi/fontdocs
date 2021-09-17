@@ -32,6 +32,20 @@ Unicode block | Font support
 C0 Controls and Basic Latin|U+0020..U+007E
 C1 Controls and Latin-1 Supplement|U+00A0..U+00FF
 
+When text requires wrapping in cells, the relative width of columns can be somewhat adjusted by tweaking the `--- | ---` line under the header:
+
+Unicode block | Characters | Long explanation
+------------- | ---- | -----------------------------
+C0 Controls and Basic Latin|U+0020..U+007E|This is a longer text to describe the basic Latin block
+C1 Controls and Latin-1 Supplement|U+00A0..U+00FF|
+
+Table columns can also be aligned using `:---:` syntax. **However on the Product Sites table headers may not properly align, though the rest of the table seems to work.**
+
+Left-aligned | Centered | Right-aligned 
+:------------- | :------------: | -------------:
+This is a longer text to describe the basic Latin block|C0 Controls and Basic Latin|U+0020..U+007E
+More left-aligned text|C1 Controls and Latin-1 Supplement|U+00A0..U+00FF
+
 ## Lists
 
 ### Ordered List
@@ -124,9 +138,28 @@ Eng alternate 2 (cv43) | <span class='charis-R normal'>Ŋ</span> | <span class='
 Eng alternate 3 (cv43) | <span class='charis-R normal'>Ŋ</span> | <span class='charis-R normal' style='font-feature-settings: "cv43" 3'>Ŋ</span>
 Serbian italic alternates (language-specific) | <span class='charis-I normal'>б г д п т</span> | <span class='charis-I normal' lang='sr'>б г д п т</span>
 
+## Right-to-left text
+
+Embedding spans of right-to-left text within a primarily left-to-right paragraph requires adding `dir="rtl"` to each `<span>`: <span dir="rtl" class='scheherazadenew-R normal'>لكل شخص الحق في التعلم. ويجب أن يكون التعليم في مراحله الأولى والأساسية على الأقل بالمجان، وأن يكون التعليم الأولي إلزاميا وينبغي أن يعمم التعليم الفني والمهني، وأن ييسر القبول للتعليم العالي على قدم المساواة التامة للجميع وعلى أساس الكفاءة.  </span> The direction changes should just work, even when the text is broken between multiple lines.
+
+Block elements (paragraphs, etc.) that are primarily right-to-left require wrapping each block in the appropriate HTML tag and also adding `dir="rtl"` to each HTML tag (not the `<span>`):
+
+<p dir="rtl"><span class='scheherazadenew-R normal'>لكل شخص الحق في التعلم. ويجب أن يكون التعليم في مراحله الأولى والأساسية على الأقل بالمجان، وأن يكون التعليم الأولي إلزاميا وينبغي أن يعمم التعليم الفني والمهني، وأن ييسر القبول للتعليم العالي على قدم المساواة التامة للجميع وعلى أساس الكفاءة.  </span></p>
+
+RTL text in table cells requires adding `dir="rtl"` to each `<span>` but also setting the column alignment for the whole table to `---:`. This will align all the text in the specified column, including the header. There seems to be no way to override the direction for text in individual cells.
+
+Language | Sample | Feature setting
+---- | ---------------: | ----
+default | <span dir="rtl" class='scheherazadenew-R normal'>&#x062F;&#x0020;&#x0630;&#x0020;&#x0688;&#x0020;&#x0689;&#x0020;&#x068A;&#x0020;&#x068B;&#x0020;&#x068C;&#x0020;&#x068D;&#x0020;&#x068E;&#x0020;&#x068F;&#x0020;&#x0690;&#x0020;&#x06EE;&#x0020;&#x0759;&#x0020;&#x075A;&#x0020;&#x08AE;&#x0020;&#x0645;&#x0020;&#x0645;&#x0645;&#x0645;&#x0020;&#x0765;&#x0020;&#x0765;&#x0765;&#x0765;&#x0020;&#x0766;&#x0020;&#x0766;&#x0766;&#x0766;&#x0020; &#x08A7;&#x0020;&#x08A7;&#x08A7;&#x08A7;&#x0020; </br>&#x0647;&#x0020;&#x0647;&#x0647;&#x0647;&#x0020; &#x0626;&#x0020;&#x0626;&#x0626;&#x0626;&#x0020; &#x060C; &#x061B; &#x06F4; &#x06F6; &#x06F7; </br>&#x0628;&#x0651;&#x0650; &#x0628;&#x064F; &#x0628;&#x064C; &#x0628;&#x0657;</span> |
+Sindhi | <span dir="rtl" class='scheherazadenew-R normal' lang='sd'>&#x062F;&#x0020;&#x0630;&#x0020;&#x0688;&#x0020;&#x0689;&#x0020;&#x068A;&#x0020;&#x068B;&#x0020;&#x068C;&#x0020;&#x068D;&#x0020;&#x068E;&#x0020;&#x068F;&#x0020;&#x0690;&#x0020;&#x06EE;&#x0020;&#x0759;&#x0020;&#x075A;&#x0020;&#x08AE;&#x0020;&#x0645;&#x0020;&#x0645;&#x0645;&#x0645;&#x0020;&#x0765;&#x0020;&#x0765;&#x0765;&#x0765;&#x0020;&#x0766;&#x0020;&#x0766;&#x0766;&#x0766;&#x0020; &#x08A7;&#x0020;&#x08A7;&#x08A7;&#x08A7;&#x0020; </br>&#x0647;&#x0020;&#x0647;&#x0647;&#x0647;&#x0020; &#x0626;&#x0020;&#x0626;&#x0626;&#x0626;&#x0020; &#x060C; &#x061B; &#x06F4; &#x06F6; &#x06F7; </br>&#x0628;&#x0651;&#x0650; &#x0628;&#x064F; &#x0628;&#x064C; &#x0628;&#x0657;</span> | `lang=sd`
+
+Text examples are from the UDHR Article 26 (Arabic MSA). Additional useful information for handling bidirectional text is in two docs from the W3C: [Structural markup and right-to-left text in HTML](https://www.w3.org/International/questions/qa-html-dir) and [Inline markup and bidirectional text in HTML](https://www.w3.org/International/articles/inline-bidi-markup/).
+
 ## Color
 
 Text can be <span style="color:red;">colored</span> by adding the CSS *style* property to the `<span>` of text.
+
+For some browsers (Firefox, Chrome) it also seems possible to color text without breaking the contextual text stream by adding a `<span>` within a `<span>`: <span dir="rtl" class='scheherazadenew-R normal'>ن<span style="color:red;">ن</span>ن</span>. **However this does not seem to work in Safari and may not work in other environments. It also does not work in the PDF, so if you use this you may need to print the doc from Chrome to produce the PDF rather than using *makedocs* (which uses weasyprint).**
 
 ## Horizontal rule
 
@@ -152,4 +185,5 @@ Text can be <mark>highlighted</mark>, though that can be very distracting.
 
 <!-- PRODUCT SITE ONLY
 [font id='charis' face='CharisSIL-R' italic='CharisSIL-I' bold='CharisSIL-B' bolditalic='CharisSIL-BI' size='150%']
+[font id='scheherazadenew' face='ScheherazadeNew-Regular' size='150%' rtl=1]
 -->
