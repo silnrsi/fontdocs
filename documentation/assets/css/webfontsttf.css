@@ -24,3 +24,15 @@ released under the MIT license (http://opensource.org/licenses/MIT).
 .charis-B { font-family: CharisSIL-B; }
 .charis-I { font-family: CharisSIL-I; }
 .charis-BI { font-family: CharisSIL-BI; }
+
+@font-face {
+    font-family: ScheherazadeNew-R;
+    src: url("../../../results/ScheherazadeNew-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: ScheherazadeNew-B;
+    src: url("../../../results/ScheherazadeNew-Bold.ttf") format("truetype");
+}
+
+.scheherazadenew-R { font-family: ScheherazadeNew-R; }
+.scheherazadenew-B { font-family: ScheherazadeNew-B; }
