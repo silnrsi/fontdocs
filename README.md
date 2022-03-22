@@ -78,13 +78,15 @@ You will want to remove the Charis SIL examples, the `markdowntest.md` file, and
 
 The system can create alternate-flavor markdown specifically for SIL font Product Sites. The content of these files can be copied and pasted directly into product site page text edit fields. There are a few important considerations:
 
-Any page that displays the webfonts must have a special shortcode added that lists the fonts used on the page and references the fonts as uploaded to the server. It is enclosed in a CSS comment: (for an example see `features.md`)
+Any page that displays the webfonts must have a special shortcode added that lists the fonts used on the page and references the fonts as uploaded to the server. It is enclosed in a CSS comment. For an example see `features.md`. These comments are processed by the `makepsmd.py` script and used to transform the markdown into what is expected by the product sites system.
 
 ```
 <!-- PRODUCT SITE ONLY
 [font id='charis' face='CharisSIL-Regular' italic='CharisSIL-Italic' bold='CharisSIL-Bold' bolditalic='CharisSIL-BoldItalic' size='150%']
 -->
 ```
+
+The `makepsmd.py` script will also transform any explicit font feature styling into a new class unique to that setting and add a supporting [font] shortcode at the end of the document. This is to work around issues with WordPress filtering of explicit styling.
 
 Images on Product Site pages also require a special comment syntax that specifies the exact link for the image: (for an example see `design.md`)
 
@@ -93,8 +95,6 @@ Images on Product Site pages also require a special comment syntax that specifie
 <!-- PRODUCT SITE IMAGE SRC http://software.sil.org/charis/wp-content/uploads/sites/14/2015/12/CharisSILTypePage.png -->
 <figcaption>This is the caption</figcaption>
 ```
-
-These comments are processes by the `makepsmd.py` script and used to transform the markdown into what is expected by the product sites system.
 
 Finally, the class definitions in `webfonts.css` and references on individual pages must match the pattern expected by the Product Sites, where the [font] shortcode on pages refers to a general family name (e.g. 'charis') and the classes are defined with extensions to that id (e.g. '.charis-R', '.charis-BI').
 
