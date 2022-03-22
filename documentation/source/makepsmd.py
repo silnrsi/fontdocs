@@ -66,15 +66,15 @@ def doit(args):
     # make a list of new classes needed for font shortcode
     fontclass = re.compile(r"style='font-feature-settings:\s\"(\w+\d*)\"\s(\d+)'")
     for match in fontclass.finditer(temptext):
-         classes.append("-" + match.group(1) + "-" + match.group(2))
+         classes.append(("-" + match.group(1) + "-" + match.group(2), match.group(1) + " " + match.group(2)))
 
     # transform explicit font feature settings into classes
-    fontspan = re.compile(r"<span\sclass='(\w+)+-(\w+)+\snormal'\sstyle='font-feature-settings:\s\"(\w+\d*)\"\s(\d+)'>")
-    temptext = fontspan.sub(r"<span class='\1-\3-\4-\2 normal'>", temptext)
+    fontspan = re.compile(r"class='(\w+)+-(\w+)+\snormal'\sstyle='font-feature-settings:\s\"(\w+\d*)\"\s(\d+)'>")
+    temptext = fontspan.sub(r"class='\1-\3-\4-\2 normal'>", temptext)
 
     # add new font sortcodes for added classes
     for c in classes:
-        temptext = temptext + "[font id='" + fontscid + c + "'" + fontscend + "]\n"
+        temptext = temptext + "[font id='" + fontscid + c[0] + "'" + fontscend + " feats='" + c[1] + "']\n"
 
     outfile.write(temptext)
 
