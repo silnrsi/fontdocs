@@ -65,7 +65,7 @@ fontversion: 6.001
 
 The markdown style is generic with some extensions. The `source/markdowntest.md` file provides examples of the supported syntax and details of special features:
 
-- Links to other files and external sources that work in both HTML and PDF versions
+- Links to other files and external sources that work in the HTML version (but not PDF)
 - Images (with special alternate syntax for product sites)
 - Webfonts
 - OpenType features
@@ -103,6 +103,10 @@ Finally, the class definitions in `webfonts.css` and references on individual pa
 ### Text font
 
 By default this system produces docs that use a generic system sans serif font for the main text. This allows most project webfonts to stand out better when used as an example on a page. This can be changed in `theme.css`. There is already a serif alternative line commented out for the <body> entity that can be used instead. To change the font used for PDF versions modify `themepdf.css`.
+
+### PDF links
+
+Unfortunately most links will not work in the PDF versions due to longstanding Weasyprint limitations. Links will still be styled as links (in blue) but will not have any link destination. Sorry - there's not much we can do to fix this. Exceptions are external links that are in templates, such as the footer. 
 
 ## License
 
