@@ -110,5 +110,5 @@ Unfortunately most links will not work in the PDF versions due to longstanding W
 
 ## License
 
-This software is Copyright (c) 2021 SIL International (http://www.sil.org) and released under the MIT license. Font software from the Charis SIL project is released under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL). (see [LICENSE](LICENSE) for details).
+This software is Copyright (c) 2021-2023 SIL International (http://www.sil.org) and released under the MIT license. Font software from the Charis SIL project is released under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL). (see [LICENSE](LICENSE) for details).
 

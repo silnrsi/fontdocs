@@ -95,6 +95,10 @@ Links to external .md files are a bit odd and require changing the extension in 
 
 Links can be specified inline, with the full link in the text, or using named references ([This project’s About page][about]).
 
+Links whose text includes @ - such as Twitter - need to have the @ escaped by adding a preceeding backslash, as in `Twitter \@silfonts`.
+
+Note that links do not work in generated PDF files.
+
 ## Footnotes
 
 Here is an example of a footnote[^1] that will appear at the very bottom[^anytext] of the page. Footnotes will automatically be numbered sequentially when rendered.
