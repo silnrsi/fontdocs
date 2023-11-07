@@ -106,7 +106,7 @@ By default this system produces docs that use a generic system sans serif font f
 
 ### PDF links
 
-Unfortunately most links will not work in the PDF versions due to longstanding Weasyprint limitations. Links will still be styled as links (in blue) but will not have any link destination. Sorry - there's not much we can do to fix this. Exceptions are external links that are in templates, such as the footer. 
+Unfortunately most links will not work in the PDF versions due to longstanding Weasyprint limitations. Links will still be styled as links (in blue) but will not have any link destination. Sorry - there's not much we can do to fix this. Exceptions are external links which will function normally. 
 
 ## License
 
