@@ -108,6 +108,12 @@ By default this system produces docs that use a generic system sans serif font f
 
 Unfortunately most links will not work in the PDF versions due to longstanding Weasyprint limitations. Links will still be styled as links (in blue) but will not have any link destination. Sorry - there's not much we can do to fix this. Exceptions are external links which will function normally. 
 
+## Lang-tag workaround
+
+In most cases, html `lang` attributes ("lang-tags") within html embedded in markdown work fine and can be used to demonstrate font capabilities (see `features.md` for an example). However, due to [this bug](https://gitlab.gnome.org/GNOME/pango/-/issues/723) in Pango (which is used by weasyprint), some lang-tags do not work in the resulting PDFs. 
+
+In some of those cases, a workaround is to find another lang-tag, typically 3-letter, that _does_ work. Since such tags are not standard for html, we suggest substituting the lang-tag in the temporary html used only to create the PDF. For an example, see [this makedocs excerpt](https://github.com/silnrsi/font-arab-tools/blob/6b602f62c5e1deff43374e2f39fcd29cc69a3fdd/makedocs#L39-L42).
+
 ## License
 
 This software is Copyright (c) 2021-2023 SIL International (http://www.sil.org) and released under the MIT license. Font software from the Charis SIL project is released under the SIL Open Font License, Version 1.1 (http://scripts.sil.org/OFL). (see [LICENSE](LICENSE) for details).
