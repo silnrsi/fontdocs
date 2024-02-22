@@ -5,7 +5,7 @@ fontversion: 6.001
 
 Charis SIL is optimized for readability in long printed documents. It is highly readable and holds up well in less-than-ideal reproduction environments due to its simple and robust design with strong serifs and clear features.
 
-![Charis SIL Sample - Precomposed Latin Diacritics](assets/images/CharisSILTypePage.png){.fullsize}
+![Charis SIL Sample - Precomposed Latin Diacritics](../assets/images/CharisSILTypePage.png){.fullsize}
 <!-- PRODUCT SITE IMAGE SRC http://software.sil.org/charis/wp-content/uploads/sites/14/2015/12/CharisSILTypePage.png -->
 <figcaption>Charis SIL Sample - Precomposed Latin Diacritics</figcaption>
 
