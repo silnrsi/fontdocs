@@ -91,7 +91,7 @@ The `makepsmd.py` script will also transform any explicit font feature styling i
 Images on Product Site pages also require a special comment syntax that specifies the exact link for the image: (for an example see `design.md`)
 
 ```
-![Charis SIL Sample - Precomposed Latin Diacritics](assets/images/CharisSILTypePage.png){.fullsize}
+![Charis SIL Sample - Precomposed Latin Diacritics](../assets/images/CharisSILTypePage.png){.fullsize}
 <!-- PRODUCT SITE IMAGE SRC http://software.sil.org/charis/wp-content/uploads/sites/14/2015/12/CharisSILTypePage.png -->
 <figcaption>This is the caption</figcaption>
 ```
