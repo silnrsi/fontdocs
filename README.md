@@ -116,5 +116,5 @@ In some of those cases, a workaround is to find another lang-tag, typically 3-le
 
 ## License
 
-This software is Copyright (c) 2021-2023 SIL International (http://www.sil.org) and released under the MIT license. Font software from the Charis SIL project is released under the SIL Open Font License, Version 1.1 (https://openfontlicense.org/). (see [LICENSE](LICENSE) for details).
+This software is Copyright (c) 2021-2024 SIL International (http://www.sil.org) and released under the MIT license. Font software from the Charis SIL project is released under the SIL Open Font License, Version 1.1 (https://openfontlicense.org/). (see [LICENSE](LICENSE) for details).
 
