@@ -101,9 +101,9 @@ Note that links do not work in generated PDF files.
 
 ## Anchors
 
-Anchors can be added to page sections so the sections can be referenced in URLs that point directly to those sections on SIL Product Sites. The format is a simple anchor with an `id`: `<a id="name"/>` These are not visible or serve any purpose in the local HTML or PDF files. Example:
+Anchors can be added to page sections so the sections can be referenced in URLs that point directly to those sections on SIL Product Sites. The format is a simple anchor with an `id`: `<a id="name"></a>` These are not visible or serve any purpose in the local HTML or PDF files. Example:
 
-#### Alternate D hook <a id="cv17"/>
+#### Alternate D hook <a id="cv17"></a>
 
 That section heading has an anchor with `id="cv17"` that can be referenced in URLs as `#cv17`, for example, [https://software.sil.org/charis/features/#cv17](https://software.sil.org/charis/features/#cv17).
 
