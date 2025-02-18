@@ -99,6 +99,14 @@ Links whose text includes @ - such as Twitter - need to have the @ escaped by ad
 
 Note that links do not work in generated PDF files.
 
+## Anchors
+
+Anchors can be added to page sections so the sections can be referenced in URLs that point directly to those sections on SIL Product Sites. The format is a simple anchor with an `id`: `<a id="name"/>` These are not visible or serve any purpose in the local HTML or PDF files. Example:
+
+#### Alternate D hook <a id="cv17"/>
+
+That section heading has an anchor with `id="cv17"` that can be referenced in URLs as `#cv17`, for example, [https://software.sil.org/charis/features/#cv17](https://software.sil.org/charis/features/#cv17).
+
 ## Footnotes
 
 Here is an example of a footnote[^1] that will appear at the very bottom[^anytext] of the page. Footnotes will automatically be numbered sequentially when rendered.
