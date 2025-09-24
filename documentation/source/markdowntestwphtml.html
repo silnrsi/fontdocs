@@ -1,0 +1,301 @@
+This document gives examples of how to use markdown for font documentation, for both in-project docs (html, pdf) and product site page source (md). Although these three target doc types each support some unique capabilities (e.g. product site accordions) this doc focuses on markdown that works for all three types.
+
+<h2>Paragraphs, text formatting, line breaking</h2>
+
+This paragraph gives examples of formatting that uses special enclosing characters: <em>italic</em>, <strong>bold</strong>, <code>inline code</code>.
+
+Here is a second paragraph. If you want to<br>
+break a line in a specific place the clearest way is to use <code>&lt;br&gt;</code>.
+
+<h2>Headings</h2>
+
+Note that H1 is not used for font documentation pages.
+
+<h2>H2</h2>
+
+The H2 is the most common heading type used.
+
+<h3>H3</h3>
+
+<h4>H4</h4>
+
+<h5>H5</h5>
+
+<h6>H6</h6>
+
+<h2>Tables</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Unicode block</th>
+  <th>Font support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>C0 Controls and Basic Latin</td>
+  <td>U+0020..U+007E</td>
+</tr>
+<tr>
+  <td>C1 Controls and Latin-1 Supplement</td>
+  <td>U+00A0..U+00FF</td>
+</tr>
+</tbody>
+</table>
+
+When text requires wrapping in cells, the relative width of columns can be somewhat adjusted by tweaking the <code>--- | ---</code> line under the header:
+
+<table>
+<thead>
+<tr>
+  <th>Unicode block</th>
+  <th>Characters</th>
+  <th>Long explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>C0 Controls and Basic Latin</td>
+  <td>U+0020..U+007E</td>
+  <td>This is a longer text to describe the basic Latin block</td>
+</tr>
+<tr>
+  <td>C1 Controls and Latin-1 Supplement</td>
+  <td>U+00A0..U+00FF</td>
+  <td></td>
+</tr>
+</tbody>
+</table>
+
+Table columns can also be aligned using <code>:---:</code> syntax:
+
+<table>
+<thead>
+<tr>
+  <th align="left">Left-aligned</th>
+  <th align="center">Centered</th>
+  <th align="right">Right-aligned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td align="left">This is a longer text to describe the basic Latin block</td>
+  <td align="center">C0 Controls and Basic Latin</td>
+  <td align="right">U+0020..U+007E</td>
+</tr>
+<tr>
+  <td align="left">More left-aligned text</td>
+  <td align="center">C1 Controls and Latin-1 Supplement</td>
+  <td align="right">U+00A0..U+00FF</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Lists</h2>
+
+<h3>Ordered List</h3>
+
+<ol>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ol>
+
+<h3>Unordered List</h3>
+
+<ul>
+<li>List item</li>
+<li>Another item</li>
+<li>And another item</li>
+</ul>
+
+<h3>Nested List</h3>
+
+<ul>
+<li>List item
+
+<ul>
+<li>Subitem</li>
+<li>Another subitem</li>
+</ul></li>
+<li>Another item</li>
+</ul>
+
+<h2>Blockquotes</h2>
+
+<blockquote>
+  Here is a block quote.
+  <strong>Note</strong> that you can use <em>Markdown syntax</em> within a blockquote.
+</blockquote>
+
+<h2>Code blocks</h2>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Example HTML5 Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Test&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2>Links</h2>
+
+External links always specify the full URL (<a href="https://keyman.com">Keyman</a>, <a href="https://software.sil.org">SIL Language Technology</a>). Relative links should point to the relevant markdown file (<a href="about">This project’s About page</a>).
+
+Links to external  files are a bit odd and require changing the extension in the source to <code>.md</code> rather than ``. This prevents the extension changing to <code>.html</code>.
+
+Links can be specified inline, with the full link in the text, or using named references (<a href="about">This project’s About page</a>).
+
+<h2>Footnotes</h2>
+
+Here is an example of a footnote<sup id="fnref-779-1"><a href="#fn-779-1">1</a></sup> that will appear at the very bottom<sup id="fnref-779-anytext"><a href="#fn-779-anytext">2</a></sup> of the page. Footnotes will automatically be numbered sequentially when rendered.
+
+<h2>Images</h2>
+
+Images should be specified in markdown syntax with the local path used as the link. The class is required and needs to be defined in {}, usually {.fullsize}. Then the actual path to the image in the product site image library needs to be placed in a comment using a special syntax. If you want a caption it needs to be placed in a separate html <em>figcaption</em> element. Example:
+
+<img class='fullsize' alt='Charis SIL Sample - Precomposed Latin Diacritics' src='http://software.sil.org/charis/wp-content/uploads/sites/14/2015/12/CharisSILTypePage.png' />
+[caption]<em>This is the caption</em>[/caption]
+
+<h2>Web fonts</h2>
+
+To display text in the html and pdf versions using generated fonts a few things need to be in place:
+
+<ul>
+<li>Each font that is used needs to have both <code>@font-face</code> and a corresponding class definition in <code>/documentation/source/assets/css/webfonts.css</code></li>
+<li>The WOFF2 fonts used must be manually copied into the local <code>/web</code> folder of whatever machine is used to generate the pdfs. These should ideally not be committed to the project repo. The generated fonts are already automatically in the right place in the user install archive.</li>
+<li>The text must be enclosed in a <code>&lt;span&gt;</code> with the appropriate class definition.</li>
+<li>If the font size needs to be different from the main body text, then the font-size (in rem) needs to be added to the css for that class in either theme.css or webfonts.css. Instead the size can be explicitly set in the individual <code>&lt;span&gt;</code></li>
+</ul>
+
+In order for text marked up in the same way to display properly on the product sites a few additional things need to be set up:
+
+<ul>
+<li>The WOFF2 font files need to be uploaded to the product site server (see docs elsewhere), and be given reference names to match the font family names used in webfonts.css.</li>
+<li>Each page that uses the font needs to have a [font] shortcode definition that matches the css class id and font family names.</li>
+<li>The classes listed in individual <code>&lt;span&gt;</code>s need to include 'normal' to remove any inherited styling. </li>
+</ul>
+
+Example: <span class='charis-R normal'>Charis SIL regular,</span> <span class='charis-I normal'>italic,</span> <span class='charis-B normal'>bold,</span> and <span class='charis-BI normal'>bold italic.</span>
+
+<h2>Font features</h2>
+
+Activating font features requires setting feature values. It is possible to set the font-feature-settings using special css classes, but it may be better to set the feature setting in the <code>&lt;span&gt;</code>. This reduces the number of [font] shortcode definitions that need to be added to each page. Examples:
+
+<table>
+<thead>
+<tr>
+  <th>Feature</th>
+  <th>Default</th>
+  <th>Activated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Small caps (scmp)</td>
+  <td><span class='charis-R normal'>abcde</span></td>
+  <td><span class='charis-R normal' style='font-feature-settings: "smcp"'>abcde</span></td>
+</tr>
+<tr>
+  <td>Eng alternate 1 (cv43)</td>
+  <td><span class='charis-R normal'>Ŋ</span></td>
+  <td><span class='charis-R normal' style='font-feature-settings: "cv43" 1'>Ŋ</span></td>
+</tr>
+<tr>
+  <td>Eng alternate 2 (cv43)</td>
+  <td><span class='charis-R normal'>Ŋ</span></td>
+  <td><span class='charis-R normal' style='font-feature-settings: "cv43" 2'>Ŋ</span></td>
+</tr>
+<tr>
+  <td>Eng alternate 3 (cv43)</td>
+  <td><span class='charis-R normal'>Ŋ</span></td>
+  <td><span class='charis-R normal' style='font-feature-settings: "cv43" 3'>Ŋ</span></td>
+</tr>
+<tr>
+  <td>Serbian italic alternates (language-specific)</td>
+  <td><span class='charis-I normal'>б г д п т</span></td>
+  <td><span class='charis-I normal' lang='sr'>б г д п т</span></td>
+</tr>
+</tbody>
+</table>
+
+<h2>Right-to-left text</h2>
+
+Embedding spans of right-to-left text within a primarily left-to-right paragraph requires adding <code>dir="rtl"</code> to each <code>&lt;span&gt;</code>: <span dir="rtl" class='scheherazadenew-R normal'>لكل شخص الحق في التعلم. ويجب أن يكون التعليم في مراحله الأولى والأساسية على الأقل بالمجان، وأن يكون التعليم الأولي إلزاميا وينبغي أن يعمم التعليم الفني والمهني، وأن ييسر القبول للتعليم العالي على قدم المساواة التامة للجميع وعلى أساس الكفاءة.  </span> The direction changes should just work, even when the text is broken between multiple lines.
+
+Block elements (paragraphs, etc.) that are primarily right-to-left require wrapping each block in the appropriate HTML tag and also adding <code>dir="rtl"</code> to each HTML tag (not the <code>&lt;span&gt;</code>):
+
+<p dir="rtl"><span class='scheherazadenew-R normal'>لكل شخص الحق في التعلم. ويجب أن يكون التعليم في مراحله الأولى والأساسية على الأقل بالمجان، وأن يكون التعليم الأولي إلزاميا وينبغي أن يعمم التعليم الفني والمهني، وأن ييسر القبول للتعليم العالي على قدم المساواة التامة للجميع وعلى أساس الكفاءة.  </span></p>
+
+RTL text in table cells requires adding <code>dir="rtl"</code> to each <code>&lt;span&gt;</code> but also setting the column alignment for the whole table to <code>---:</code>. This will align all the text in the specified column, including the header. There seems to be no way to override the direction for text in individual cells.
+
+<table>
+<thead>
+<tr>
+  <th>Language</th>
+  <th align="right">Sample</th>
+  <th>Feature setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>default</td>
+  <td align="right"><span dir="rtl" class='scheherazadenew-R normal'>&#x062F;&#x0020;&#x0630;&#x0020;&#x0688;&#x0020;&#x0689;&#x0020;&#x068A;&#x0020;&#x068B;&#x0020;&#x068C;&#x0020;&#x068D;&#x0020;&#x068E;&#x0020;&#x068F;&#x0020;&#x0690;&#x0020;&#x06EE;&#x0020;&#x0759;&#x0020;&#x075A;&#x0020;&#x08AE;&#x0020;&#x0645;&#x0020;&#x0645;&#x0645;&#x0645;&#x0020;&#x0765;&#x0020;&#x0765;&#x0765;&#x0765;&#x0020;&#x0766;&#x0020;&#x0766;&#x0766;&#x0766;&#x0020; &#x08A7;&#x0020;&#x08A7;&#x08A7;&#x08A7;&#x0020; </br>&#x0647;&#x0020;&#x0647;&#x0647;&#x0647;&#x0020; &#x0626;&#x0020;&#x0626;&#x0626;&#x0626;&#x0020; &#x060C; &#x061B; &#x06F4; &#x06F6; &#x06F7; </br>&#x0628;&#x0651;&#x0650; &#x0628;&#x064F; &#x0628;&#x064C; &#x0628;&#x0657;</span></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Sindhi</td>
+  <td align="right"><span dir="rtl" class='scheherazadenew-R normal' lang='sd'>&#x062F;&#x0020;&#x0630;&#x0020;&#x0688;&#x0020;&#x0689;&#x0020;&#x068A;&#x0020;&#x068B;&#x0020;&#x068C;&#x0020;&#x068D;&#x0020;&#x068E;&#x0020;&#x068F;&#x0020;&#x0690;&#x0020;&#x06EE;&#x0020;&#x0759;&#x0020;&#x075A;&#x0020;&#x08AE;&#x0020;&#x0645;&#x0020;&#x0645;&#x0645;&#x0645;&#x0020;&#x0765;&#x0020;&#x0765;&#x0765;&#x0765;&#x0020;&#x0766;&#x0020;&#x0766;&#x0766;&#x0766;&#x0020; &#x08A7;&#x0020;&#x08A7;&#x08A7;&#x08A7;&#x0020; </br>&#x0647;&#x0020;&#x0647;&#x0647;&#x0647;&#x0020; &#x0626;&#x0020;&#x0626;&#x0626;&#x0626;&#x0020; &#x060C; &#x061B; &#x06F4; &#x06F6; &#x06F7; </br>&#x0628;&#x0651;&#x0650; &#x0628;&#x064F; &#x0628;&#x064C; &#x0628;&#x0657;</span></td>
+  <td><code>lang=sd</code></td>
+</tr>
+</tbody>
+</table>
+
+Text examples are from the UDHR Article 26 (Arabic MSA). Additional useful information for handling bidirectional text is in two docs from the W3C: <a href="https://www.w3.org/International/questions/qa-html-dir">Structural markup and right-to-left text in HTML</a> and <a href="https://www.w3.org/International/articles/inline-bidi-markup/">Inline markup and bidirectional text in HTML</a>.
+
+<h2>Color</h2>
+
+Text can be <span style="color:red;">colored</span> by adding the CSS <em>style</em> property to the <code>&lt;span&gt;</code> of text.
+
+For some browsers (Firefox, Chrome) it also seems possible to color text without breaking the contextual text stream by adding a <code>&lt;span&gt;</code> within a <code>&lt;span&gt;</code>: <span dir="rtl" class='scheherazadenew-R normal'>ن<span style="color:red;">ن</span>ن</span>. <strong>However this does not seem to work in Safari and may not work in other environments. It also does not work in the PDF, so if you use this you may need to print the doc from Chrome to produce the PDF rather than using <em>makedocs</em> (which uses weasyprint).</strong>
+
+<h2>Horizontal rule</h2>
+
+Paragraph before rule.
+
+<hr />
+
+Paragraph after rule.
+
+<h2>Formatting using special html entities</h2>
+
+H<sub>2</sub>O
+
+X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+
+Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> to copy.
+
+Text can be <mark>highlighted</mark>, though that can be very distracting.
+
+[font id='charis' face='CharisSIL-R' italic='CharisSIL-I' bold='CharisSIL-B' bolditalic='CharisSIL-BI' size='150%']
+[font id='scheherazadenew' face='ScheherazadeNew-Regular' size='150%' rtl=1]
+
+<div class="footnotes">
+<hr />
+<ol>
+
+<li id="fn-779-1">
+Here is an example of how the footnote text is indicated. This example reference is in the text.&#160;<a href="#fnref-779-1">&#8617;</a>
+</li>
+
+<li id="fn-779-anytext">
+Footnote references can also be text but will still get numbered correctly. The references can be placed at the bottom of the markdown page.&#160;<a href="#fnref-779-anytext">&#8617;</a>
+</li>
+
+</ol>
+</div>
