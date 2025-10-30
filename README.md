@@ -1,6 +1,6 @@
 # Fontdocs
 
-This is a system for generating simple multi-platform documentation for font projects. It was specifically developed for SIL font projects that use the workflow documented at [SIL Font Development Notes (silfontdev)](https://silnrsi.github.io/silfontdev/en-US/index.html) but could provide ideas for other projects and workflows.
+This is a system for generating simple multi-platform documentation for font projects. It was specifically developed for SIL font projects that use the workflow documented at [SIL Font Development Guide](https://writingsystems.info/topics/fonts/building-and-modifying-sil-fonts/) but could provide ideas for other projects and workflows.
 
 From markdown source the system generates:
 
@@ -24,7 +24,7 @@ The system runs on Linux or macOS and requires the following to be installed:
 - [pysilfont](https://github.com/silnrsi/pysilfont)
 - The [Roboto](https://fonts.google.com/specimen/Roboto) and [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono) font families - these seem to produce PDFs that match the HTML docs most closely
 
-These tools are already installed in the [Linux-based virtual machine we use for font development](https://silnrsi.github.io/silfontdev/en-US/Setting_Up_Tools.html). Setting up Weasyprint on other platforms (such as macOS) can be troublesome but does work.
+These tools are already installed in the [Ubuntu-based container we use for font development](https://writingsystems.info/topics/fonts/building-and-modifying-sil-fonts/#setting-up-tools). Setting up Weasyprint on other platforms (such as macOS) can be troublesome but does work.
 
 The system also requires both web (WOFF2) and desktop (TTF or OTF) versions of your fonts.
 
@@ -32,7 +32,7 @@ The system also requires both web (WOFF2) and desktop (TTF or OTF) versions of y
 
 To use this system for a font project:
 
-- Install the required tools and fonts (unless you're using the silfontdev VM)
+- Install the required tools and fonts (unless you're using the Font Development container)
 - Copy the `documentation` folder (or its contents) into your project
 - Adjust the footer info in the `source/template.html` and `source/templatepdf.html` files
 - Place WOFF2 versions of your fonts in a `web` folder (as is done in this repo with Charis SIL), then adjust the `/assets/css/webfonts.css` file:
