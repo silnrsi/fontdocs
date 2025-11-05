@@ -17,6 +17,8 @@ def doit(args):
     infile = args.infile
     outfile = args.outfile
 
+    firstline = True
+    inheader = False
     inpsonly = False
     infontsc = False
     
@@ -24,8 +26,16 @@ def doit(args):
 
     temptext = ""
 
-    # Uncomment the [font] shortcode
+    # remove YAML header and uncomment the [font] shortcode
     for line in infile:
+        if firstline:
+            firstline = False
+            inheader = True
+            continue
+        if inheader:
+            if line.startswith("---"):
+                inheader = False
+            continue
         if line.startswith("<!-- PRODUCT SITE ONLY"):
             inpsonly = True
             continue
