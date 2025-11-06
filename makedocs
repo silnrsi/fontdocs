@@ -96,7 +96,7 @@ python3 documentation/source/makepsmd.py documentation/source/support.md documen
 echo "     > markdowntest.md"
 python3 documentation/source/makepsmd.py documentation/source/markdowntest.md documentation/source/productsite/markdowntest.md -q
 pandoc --wrap preserve -f markdown-smart -o documentation/source/productsite/markdowntest.html -L documentation/source/pandocfilters/filter-wp.lua documentation/source/productsite/markdowntest.md
-python3 documentation/source/makepshtml.py documentation/source/productsite/markdowntest.html documentation/source/productsite/markdowntest.wp -q
+python3 documentation/source/makepshtml.py documentation/source/productsite/markdowntest.html documentation/source/productsite/markdowntest.wphtml -q
 echo "     Markdown source for other Product Site pages is in separate repo"
 
 echo "-----Completed!"
