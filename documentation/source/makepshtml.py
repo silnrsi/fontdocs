@@ -5,7 +5,6 @@ __copyright__ = 'Copyright (c) 2021-2025 SIL Global (https://www.sil.org)'
 __license__ = 'Released under the MIT License (https://opensource.org/licenses/MIT)'
 __author__ = 'Bobby de Vos'
 
-import re
 from silfont.core import execute
 
 argspec = [
@@ -13,11 +12,11 @@ argspec = [
     ('outfile',{'help': 'Output .html filename'}, {'type': 'outfile'})
 ]
 
+
 def doit(args):
     infile = args.infile
     outfile = args.outfile
 
-    inpara = False
     inrtlpara = False
 
     temptext = ""
@@ -48,7 +47,7 @@ def doit(args):
 
     # Match WordPress style HTML
     replacements = [
-        ('<p>', '\n'), # only need in lists
+        ('<p>', '\n'),  # only need in lists
         # ('</p>', '\n'),
         ('</h2>', '</h2>\n'),
         ('</h3>', '</h3>\n'),
@@ -61,8 +60,8 @@ def doit(args):
         ('</pre>', '</pre>\n'),
         ('<hr />', '<hr />\n'),
         ('</blockquote>', '</blockquote>\n'),
-        ('</aside>', '</div>\n'), # needed for pandoc version 3.1.3
-        ('</section>', '</div>\n'), # needed for pandoc version at least 3.3 and later
+        ('</aside>', '</div>\n'),  # needed for pandoc version 3.1.3
+        ('</section>', '</div>\n'),  # needed for pandoc version at least 3.3 and later
     ]
     for replacement in replacements:
         temptext = temptext.replace(replacement[0], replacement[1])
