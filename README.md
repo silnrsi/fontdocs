@@ -114,7 +114,17 @@ In most cases, html `lang` attributes ("lang-tags") within html embedded in mark
 
 In some of those cases, a workaround is to find another lang-tag, typically 3-letter, that _does_ work. Since such tags are not standard for html, we suggest substituting the lang-tag in the temporary html used only to create the PDF. For an example, see [this makedocs excerpt](https://github.com/silnrsi/font-arab-tools/blob/6b602f62c5e1deff43374e2f39fcd29cc69a3fdd/makedocs#L39-L42).
 
+## Experimental font sample image generation
+
+There is a limited prototype of a script that can be used to produce sample font images. To try it out you will need to install `drawbot-skia` with `pip install drawbot-skia`. Then navigate to the `documentation/source` directory and run:
+
+```
+python3 makesampleimages.py ../../results/CharisSIL-Regular.ttf ../assets/images --base "CharisSIL-R" --sizes "S,M,L"
+```
+
+The script will need a lot of work and testing to refine the command syntax and make it more robust and useful for a wide range of scripts, including RTL scripts.
+
 ## License
 
-This software is Copyright (c) 2021-2024 SIL Global (http://www.sil.org) and released under the MIT license. Font software from the Charis SIL project is released under the SIL Open Font License, Version 1.1 (https://openfontlicense.org/). (see [LICENSE](LICENSE) for details).
+This software is Copyright (c) 2021-2026 SIL Global (http://www.sil.org) and released under the MIT license. Font software from the Charis SIL project is released under the SIL Open Font License, Version 1.1 (https://openfontlicense.org/). (see [LICENSE](LICENSE) for details).
 
