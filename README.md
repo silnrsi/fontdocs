@@ -12,7 +12,7 @@ It supports OpenType font features using CSS webfonts.
 
 The design and functionality of the docs is intentionally basic. The visual appearance can be adjusted by modifying the HTML templates and CSS.
 
-Most of the documentation is by example, using some files from the [Charis SIL](https://software.sil.org/charis) project.
+Most of the documentation is by example, using some files from the [Charis SIL](https://software.sil.org/charis) and [Scheherazade New](https://software.sil.org/scheherazade/) projects.
 
 ## Requirements
 
@@ -35,11 +35,11 @@ To use this system for a font project:
 - Install the required tools and fonts (unless you're using the Font Development container)
 - Copy the `documentation` folder (or its contents) into your project
 - Adjust the footer info in the `source/template.html` and `source/templatepdf.html` files
-- Place WOFF2 versions of your fonts in a `web` folder (as is done in this repo with Charis SIL), then adjust the `/assets/css/webfonts.css` file:
+- Place WOFF2 versions of your fonts in a `web` folder (as is done in this repo with Charis SIL and Scheherazade New), then adjust the `/assets/css/webfonts.css` file:
     - To point to the WOFF2 fonts
     - To define the classes you will use in the markdown to refer to your fonts
 - Adjust `assets/css/webfontsttf.css` to point to wherever the TTF or OTF versions of your fonts can be found (typically in a `/results` folder when building SIL font projects)
-    - This repo contains the full Charis SIL 6.001 package in the `results` folder, however only the font themselves are needed
+    - This repo contains the fonts (and license and minimal documentation) from the Charis SIL 6.001 and Scheherazade New 3.200 packages in the `results` folder, however only the font themselves are needed
     - Do not include the Charis SIL fonts in your project - they are only there for the examples
 - Create and edit your docs as individual markdown files in the `source` folder, based on the format in provided examples
 - Prepare the `makedocs` shell script:
@@ -50,7 +50,7 @@ To use this system for a font project:
 - Run `./makedocs` from the project root folder - the results will be in:
     - `documentation` (HTML)
     - `documentation/pdf` (PDF)
-    - `documentation/source/productsite` (Alternative markdown for SIL product sites)
+    - `documentation/source/productsite` (WordPress flavored HTML for SIL product sites)
 
 ## Authoring content
 
@@ -76,9 +76,9 @@ You will want to remove the Charis SIL examples, the `markdowntest.md` file, and
 
 ## SIL Product Sites usage
 
-The system can create alternate-flavor markdown specifically for SIL font Product Sites. The content of these files can be copied and pasted directly into product site page text edit fields. There are a few important considerations:
+The system can create WordPress flavored HTML specifically for SIL font Product Sites. The content of these files can be copied and pasted directly into product site page text edit fields. There are a few important considerations:
 
-Any page that displays the webfonts must have a special shortcode added that lists the fonts used on the page and references the fonts as uploaded to the server. It is enclosed in a CSS comment. For an example see `features.md`. These comments are processed by the `makepsmd.py` script and used to transform the markdown into what is expected by the product sites system.
+Any page that displays the webfonts must have a special shortcode added that lists the fonts used on the page and references the fonts as uploaded to the server. It is enclosed in a CSS comment. For an example see `features.md`. These comments are processed by `makepsmd.py`/`pandoc`/`makepshtml.py` and used to transform the markdown into what is expected by the product sites system.
 
 ```
 <!-- PRODUCT SITE ONLY
